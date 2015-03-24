@@ -78,6 +78,80 @@ bool String::operator!=(const char *str) const{
 	}
 }
 
+const String& String::operator=(const String &str){
+
+	if (str.Length() + 1 > size){
+
+		delete[] string;
+		Alloc(str.Length() + 1);
+	}
+	
+	else Clear();
+	
+	strcpy_s(string, size, str.string);
+	return (*this);
+}
+
+const String& String::operator=(const char *str){
+
+	if (str != NULL){
+
+		if (strlen(str) + 1 > size){// It couldn't be: str.Length() because Length function would expect a class type
+
+			delete[] string;
+			Alloc(strlen(str) + 1);
+		}
+
+		else Clear();
+		strcpy_s(string, size, str);
+	}
+
+	else Clear();
+	return (*this);
+}
+
+const String& String::operator+=(const String &str){
+
+	unsigned int required_memory = str.Length() + strlen(string) + 1;
+	if (required_memory > size){
+		
+		char *tmp = string;
+		Alloc(required_memory);
+		strcpy_s(string, size, tmp);
+		delete[] tmp;
+	}
+	strcat_s(string, size, str.string); //Function to concatenate strings
+	return(*this);
+}
+
+const String& String::operator+=(const char *str){
+
+	if (str != NULL){
+		unsigned int required_memory = strlen(str) + strlen(string) + 1;
+		if (required_memory > size){
+
+			char *tmp = string;
+			Alloc(required_memory);
+			strcpy_s(string, size, tmp);
+			delete[] tmp;
+		}
+
+		strcat_s(string, size, str);
+	}
+
+	return(*this);
+}
+
+unsigned int String::Length() const{
+
+	return(strlen(string));
+}
+
+const char* String::GetString() const{
+
+	return(string);
+}
+
 void String::Clear(){
 
 	string[0] = '\0';

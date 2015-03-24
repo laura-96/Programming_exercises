@@ -41,7 +41,7 @@ public:
 	//Destructor:
 	virtual ~String(){
 
-		delete string[];
+		delete[] string;
 	}
 
 private:
