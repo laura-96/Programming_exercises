@@ -6,34 +6,38 @@
 #define DYN_ARRAY_BLOCK_SIZE 16
 
 template<class VALUE>
-class p2DynArray
+
+class DynArray
 {
 private:
 
-	VALUE*			data;
-	unsigned int	mem_capacity;
-	unsigned int	num_elements;
+	VALUE* data;
+	unsigned int mem_capacity;
+	unsigned int num_elements;
 
 public:
 
 	// Constructors
-	p2DynArray() : mem_capacity(0), num_elements(0), data(NULL)
+	DynArray()
 	{
+		mem_capacity = 0;
+		num_elements = 0;
+		data = NULL;
 		Alloc(DYN_ARRAY_BLOCK_SIZE);
 	}
 
-	p2DynArray(unsigned int capacity) : mem_capacity(0), num_elements(0), data(NULL)
+	DynArray(unsigned int capacity) : mem_capacity(0), num_elements(0), data(NULL)
 	{
 		Alloc(capacity);
 	}
 
 	// Destructor
-	~p2DynArray()
+	~DynArray()
 	{
 		delete[] data;
 	}
 
-	// Operators
+
 	VALUE& operator[](unsigned int index)
 	{
 		assert(index < num_elements);
@@ -46,7 +50,7 @@ public:
 		return data[index];
 	}
 
-	// Data Management
+
 	void PushBack(const VALUE& element)
 	{
 		if (num_elements >= mem_capacity)
@@ -57,14 +61,13 @@ public:
 		data[num_elements++] = element;
 	}
 
-	bool Pop(VALUE& value)
+	void Pop(VALUE& value)
 	{
-		if (num_elements > 0)
+		if (num_elements >=1)
 		{
-			value = data[--num_elements];
-			return true;
+			num_elements -= 1;
 		}
-		return false;
+
 	}
 
 	void Clear()
@@ -117,7 +120,7 @@ public:
 		return result;
 	}
 
-	// Utils
+
 	unsigned int GetCapacity() const
 	{
 		return mem_capacity;
@@ -130,7 +133,7 @@ public:
 
 private:
 
-	// Private Utils
+	//Allocate memory:
 	void Alloc(unsigned int mem)
 	{
 		VALUE* tmp = data;
