@@ -1,0 +1,10 @@
+TYPE OF NOMENCLATURE USED IN PROJECTS
+
+Class Names:
+	Will use PascalCase
+
+Method Names:
+	Will use PascalCase
+
+Variable Names:
+	Will use snake_case
