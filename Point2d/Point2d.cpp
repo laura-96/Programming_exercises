@@ -57,6 +57,6 @@ float Point2d::DistanceTo(const Point2d& a) const{
 	float distance;
 	float vx = a.x - x;
 	float vy = a.y - y;
-	distance = sqrt((vx*vx) + (vy*vy));
+	distance = sqrtf((vx*vx) + (vy*vy));
 	return distance;
 }
