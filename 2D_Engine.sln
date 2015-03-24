@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Point2d", "Point2d\Point2d.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "String", "String\String.vcxproj", "{A69F7ABD-72EE-49A3-95FB-1BC5FEE851E0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedList", "LinkedList\LinkedList.vcxproj", "{F9221065-718E-46FF-9436-574813E01A57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,10 @@ Global
 		{A69F7ABD-72EE-49A3-95FB-1BC5FEE851E0}.Debug|Win32.Build.0 = Debug|Win32
 		{A69F7ABD-72EE-49A3-95FB-1BC5FEE851E0}.Release|Win32.ActiveCfg = Release|Win32
 		{A69F7ABD-72EE-49A3-95FB-1BC5FEE851E0}.Release|Win32.Build.0 = Release|Win32
+		{F9221065-718E-46FF-9436-574813E01A57}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F9221065-718E-46FF-9436-574813E01A57}.Debug|Win32.Build.0 = Debug|Win32
+		{F9221065-718E-46FF-9436-574813E01A57}.Release|Win32.ActiveCfg = Release|Win32
+		{F9221065-718E-46FF-9436-574813E01A57}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
